@@ -28,7 +28,6 @@ default_values = {
     "settling_time": 0.0,
     "initial_turbidity": 0.0,
     "rapid_mix_speed": 0.0,
-    "residual_turbidity": 0.0,
     "prediction": None,
     "show_confirm": False
 }
@@ -210,12 +209,6 @@ with col2:
         format="%.2f"
     )
 
-    st.session_state.residual_turbidity = st.number_input(
-        "Residual Turbidity (NTU)",
-        value=st.session_state.residual_turbidity,
-        format="%.2f"
-    )
-
 # -----------------------------
 # BUTTONS
 # -----------------------------
@@ -241,7 +234,6 @@ if predict:
         st.session_state.ph,
         st.session_state.settling_time,
         st.session_state.initial_turbidity,
-        st.session_state.residual_turbidity,
         st.session_state.rapid_mix_speed
     ]])
 
@@ -276,7 +268,6 @@ if st.session_state.show_confirm:
         st.session_state.settling_time = 0.0
         st.session_state.initial_turbidity = 0.0
         st.session_state.rapid_mix_speed = 0.0
-        st.session_state.residual_turbidity = 0.0
         st.session_state.prediction = None
         st.session_state.show_confirm = False
 
